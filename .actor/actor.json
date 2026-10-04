@@ -13,9 +13,12 @@
         "overview": {
           "title": "Listings",
           "transformation": {},
-          "display": { "component": "table" }
+          "display": {
+            "component": "table"
+          }
         }
       }
     }
-  }
+  },
+  "output": "./output_schema.json"
 }

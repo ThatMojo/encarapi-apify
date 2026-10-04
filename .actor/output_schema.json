@@ -1,0 +1,12 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Korean & Chinese used car listings",
+  "description": "One dataset item per listing (search mode) or per vehicle (details mode), as returned by the EnCarAPI.",
+  "properties": {
+    "listings": {
+      "type": "string",
+      "title": "Listings",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    }
+  }
+}
