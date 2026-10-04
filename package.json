@@ -1,0 +1,15 @@
+{
+  "name": "korean-chinese-used-cars-encarapi",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Apify Actor for EnCarAPI: Korean (Encar, KB Chachacha, K Car) and Chinese (Dongchedi, Che168) used car listings.",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "apify": "^3.7.2",
+    "encarapi": "^1.0.0"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,106 @@
+{
+  "title": "EnCarAPI - Korean & Chinese used car data",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "apiKey": {
+      "title": "EnCarAPI key",
+      "type": "string",
+      "description": "Your API key from https://encarapi.com (Korea) or https://chinacarapi.com (China). EnCarAPI keys with the China add-on work for both markets.",
+      "editor": "textfield",
+      "isSecret": true
+    },
+    "market": {
+      "title": "Market",
+      "type": "string",
+      "description": "Korea: Encar, KB Chachacha, K Car. China: Dongchedi, Che168.",
+      "editor": "select",
+      "enum": ["korea", "china"],
+      "enumTitles": ["South Korea", "China"],
+      "default": "korea"
+    },
+    "mode": {
+      "title": "Mode",
+      "type": "string",
+      "description": "Search listings, or fetch full details for a list of vehicle ids.",
+      "editor": "select",
+      "enum": ["search", "details"],
+      "enumTitles": ["Search listings", "Full details for vehicle ids"],
+      "default": "search"
+    },
+    "maxItems": {
+      "title": "Max results",
+      "type": "integer",
+      "description": "Stop after this many listings.",
+      "minimum": 1,
+      "maximum": 100000,
+      "default": 100
+    },
+    "koreaSource": {
+      "title": "Korean marketplace",
+      "type": "string",
+      "description": "Encar is included in every plan. KB Chachacha, K Car and the deduplicated union depend on your plan (see encarapi.com/#pricing).",
+      "editor": "select",
+      "enum": ["encar", "kbc", "kcar", "all"],
+      "enumTitles": ["Encar", "KB Chachacha", "K Car", "All three (deduplicated)"],
+      "default": "encar",
+      "sectionCaption": "Korea filters"
+    },
+    "manufacturer": {
+      "title": "Brand",
+      "type": "string",
+      "description": "English brand name, e.g. Hyundai, Kia, Genesis, BMW. Comma-separated = OR.",
+      "editor": "textfield"
+    },
+    "modelGroup": {
+      "title": "Model",
+      "type": "string",
+      "description": "Model line, e.g. Sorento, Grandeur, 5 Series.",
+      "editor": "textfield"
+    },
+    "modelSearch": {
+      "title": "Free-text model search",
+      "type": "string",
+      "description": "Cross-brand search, e.g. 'GV80' or 's63 coupe'.",
+      "editor": "textfield"
+    },
+    "minYear": { "title": "Min year", "type": "integer", "description": "Model year (4 digits).", "editor": "number" },
+    "maxYear": { "title": "Max year", "type": "integer", "description": "Model year (4 digits).", "editor": "number" },
+    "maxPriceManwon": {
+      "title": "Max price (10,000 KRW)",
+      "type": "integer",
+      "description": "Korean prices are in 만원: 3000 = 30,000,000 KRW.",
+      "editor": "number"
+    },
+    "maxMileage": { "title": "Max mileage (km)", "type": "integer", "description": "Maximum mileage in km.", "editor": "number" },
+    "frameClean": {
+      "title": "Accident-free chassis only",
+      "type": "boolean",
+      "description": "Only cars with a clean chassis frame.",
+      "default": false
+    },
+    "chinaMake": {
+      "title": "Brand (China)",
+      "type": "string",
+      "description": "English brand name, e.g. BYD, Toyota.",
+      "editor": "textfield",
+      "sectionCaption": "China filters"
+    },
+    "chinaModel": { "title": "Model (China)", "type": "string", "description": "Model name.", "editor": "textfield" },
+    "chinaPriceMaxCny": { "title": "Max price (CNY)", "type": "integer", "description": "Maximum price in CNY.", "editor": "number" },
+    "exportReady": {
+      "title": "Export-ready only",
+      "type": "boolean",
+      "description": "Only Chinese cars that can be exported now.",
+      "default": false
+    },
+    "vehicleIds": {
+      "title": "Vehicle ids (details mode)",
+      "type": "array",
+      "description": "Ids from a search. Korea: Encar id, kbc:<id> or kcar:<id>.",
+      "editor": "stringList",
+      "sectionCaption": "Details mode"
+    }
+  },
+  "required": ["apiKey"]
+}

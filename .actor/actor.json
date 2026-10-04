@@ -1,0 +1,21 @@
+{
+  "actorSpecification": 1,
+  "name": "korean-chinese-used-cars-encarapi",
+  "title": "Korean & Chinese Used Cars API (Encar, KB Chachacha, K Car, Dongchedi, Che168)",
+  "description": "Live used car listings from South Korea (Encar, KB Chachacha, K Car) and China (Dongchedi, Che168) via the official EnCarAPI. Requires your EnCarAPI key.",
+  "version": "1.0",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Listings",
+          "transformation": {},
+          "display": { "component": "table" }
+        }
+      }
+    }
+  }
+}
