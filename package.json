@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "apify": "^3.7.2",
-    "encarapi": "^1.0.0"
+    "encarapi": "github:ThatMojo/encarapi-node"
   },
   "license": "MIT"
 }
