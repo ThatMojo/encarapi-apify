@@ -6,7 +6,7 @@
     "apiKey": {
       "title": "EnCarAPI key",
       "type": "string",
-      "description": "Your API key from https://encarapi.com (Korea) or https://chinacarapi.com (China). EnCarAPI keys with the China add-on work for both markets.",
+      "description": "Your API key from https://encarapi.com (Korea) or https://chinacarapi.com (China). EnCarAPI keys with the China add-on work for both markets. Without a key the Actor only returns a demo item explaining how to get one.",
       "editor": "textfield",
       "isSecret": true
     },
@@ -15,8 +15,14 @@
       "type": "string",
       "description": "Korea: Encar, KB Chachacha, K Car. China: Dongchedi, Che168.",
       "editor": "select",
-      "enum": ["korea", "china"],
-      "enumTitles": ["South Korea", "China"],
+      "enum": [
+        "korea",
+        "china"
+      ],
+      "enumTitles": [
+        "South Korea",
+        "China"
+      ],
       "default": "korea"
     },
     "mode": {
@@ -24,8 +30,14 @@
       "type": "string",
       "description": "Search listings, or fetch full details for a list of vehicle ids.",
       "editor": "select",
-      "enum": ["search", "details"],
-      "enumTitles": ["Search listings", "Full details for vehicle ids"],
+      "enum": [
+        "search",
+        "details"
+      ],
+      "enumTitles": [
+        "Search listings",
+        "Full details for vehicle ids"
+      ],
       "default": "search"
     },
     "maxItems": {
@@ -41,8 +53,18 @@
       "type": "string",
       "description": "Encar is included in every plan. KB Chachacha, K Car and the deduplicated union depend on your plan (see encarapi.com/#pricing).",
       "editor": "select",
-      "enum": ["encar", "kbc", "kcar", "all"],
-      "enumTitles": ["Encar", "KB Chachacha", "K Car", "All three (deduplicated)"],
+      "enum": [
+        "encar",
+        "kbc",
+        "kcar",
+        "all"
+      ],
+      "enumTitles": [
+        "Encar",
+        "KB Chachacha",
+        "K Car",
+        "All three (deduplicated)"
+      ],
       "default": "encar",
       "sectionCaption": "Korea filters"
     },
@@ -64,15 +86,30 @@
       "description": "Cross-brand search, e.g. 'GV80' or 's63 coupe'.",
       "editor": "textfield"
     },
-    "minYear": { "title": "Min year", "type": "integer", "description": "Model year (4 digits).", "editor": "number" },
-    "maxYear": { "title": "Max year", "type": "integer", "description": "Model year (4 digits).", "editor": "number" },
+    "minYear": {
+      "title": "Min year",
+      "type": "integer",
+      "description": "Model year (4 digits).",
+      "editor": "number"
+    },
+    "maxYear": {
+      "title": "Max year",
+      "type": "integer",
+      "description": "Model year (4 digits).",
+      "editor": "number"
+    },
     "maxPriceManwon": {
       "title": "Max price (10,000 KRW)",
       "type": "integer",
       "description": "Korean prices are in 만원: 3000 = 30,000,000 KRW.",
       "editor": "number"
     },
-    "maxMileage": { "title": "Max mileage (km)", "type": "integer", "description": "Maximum mileage in km.", "editor": "number" },
+    "maxMileage": {
+      "title": "Max mileage (km)",
+      "type": "integer",
+      "description": "Maximum mileage in km.",
+      "editor": "number"
+    },
     "frameClean": {
       "title": "Accident-free chassis only",
       "type": "boolean",
@@ -86,8 +123,18 @@
       "editor": "textfield",
       "sectionCaption": "China filters"
     },
-    "chinaModel": { "title": "Model (China)", "type": "string", "description": "Model name.", "editor": "textfield" },
-    "chinaPriceMaxCny": { "title": "Max price (CNY)", "type": "integer", "description": "Maximum price in CNY.", "editor": "number" },
+    "chinaModel": {
+      "title": "Model (China)",
+      "type": "string",
+      "description": "Model name.",
+      "editor": "textfield"
+    },
+    "chinaPriceMaxCny": {
+      "title": "Max price (CNY)",
+      "type": "integer",
+      "description": "Maximum price in CNY.",
+      "editor": "number"
+    },
     "exportReady": {
       "title": "Export-ready only",
       "type": "boolean",
@@ -102,5 +149,5 @@
       "sectionCaption": "Details mode"
     }
   },
-  "required": ["apiKey"]
+  "required": []
 }
