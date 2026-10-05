@@ -4,7 +4,7 @@
   "schemaVersion": 1,
   "properties": {
     "apiKey": {
-      "title": "EnCarAPI key",
+      "title": "EnCarAPI or ChinaCarAPI key",
       "type": "string",
       "description": "Your API key from https://encarapi.com (Korea) or https://chinacarapi.com (China). EnCarAPI keys with the China add-on work for both markets. Without a key the Actor only returns a demo item explaining how to get one.",
       "editor": "textfield",
@@ -116,12 +116,29 @@
       "description": "Only cars with a clean chassis frame.",
       "default": false
     },
+    "chinaSource": {
+      "title": "Chinese marketplace",
+      "type": "string",
+      "description": "Dongchedi, Che168 or both (duplicates across the two are removed). The free Dev plan covers Dongchedi only. In details mode this picks the marketplace for ids that exist on both.",
+      "editor": "select",
+      "enum": [
+        "all",
+        "dongchedi",
+        "che168"
+      ],
+      "enumTitles": [
+        "Both (deduplicated)",
+        "Dongchedi",
+        "Che168"
+      ],
+      "default": "all",
+      "sectionCaption": "China filters"
+    },
     "chinaMake": {
       "title": "Brand (China)",
       "type": "string",
       "description": "English brand name, e.g. BYD, Toyota.",
-      "editor": "textfield",
-      "sectionCaption": "China filters"
+      "editor": "textfield"
     },
     "chinaModel": {
       "title": "Model (China)",
@@ -135,16 +152,52 @@
       "description": "Maximum price in CNY.",
       "editor": "number"
     },
+    "chinaMinYear": {
+      "title": "Min year (China)",
+      "type": "integer",
+      "description": "Model year (4 digits).",
+      "editor": "number"
+    },
+    "chinaMaxYear": {
+      "title": "Max year (China)",
+      "type": "integer",
+      "description": "Model year (4 digits).",
+      "editor": "number"
+    },
+    "chinaMaxMileage": {
+      "title": "Max mileage (China, km)",
+      "type": "integer",
+      "description": "Maximum mileage in km.",
+      "editor": "number"
+    },
+    "chinaCity": {
+      "title": "City (China)",
+      "type": "string",
+      "description": "City where the car is offered, as listed in /api/enums (cities[].value, e.g. 上海 for Shanghai).",
+      "editor": "textfield"
+    },
+    "chinaFuel": {
+      "title": "Fuel (China)",
+      "type": "string",
+      "description": "Fuel type in English or Chinese, e.g. Petrol, Electric, Plug-in hybrid (see /api/enums).",
+      "editor": "textfield"
+    },
     "exportReady": {
       "title": "Export-ready only",
       "type": "boolean",
       "description": "Only Chinese cars that can be exported now.",
       "default": false
     },
+    "chinaHasReport": {
+      "title": "With inspection report only",
+      "type": "boolean",
+      "description": "Only Chinese cars that have an inspection report.",
+      "default": false
+    },
     "vehicleIds": {
       "title": "Vehicle ids (details mode)",
       "type": "array",
-      "description": "Ids from a search. Korea: Encar id, kbc:<id> or kcar:<id>.",
+      "description": "Ids from a search. Korea: Encar id, kbc:<id> or kcar:<id>. China: the Dongchedi or Che168 listing id (set Chinese marketplace for ids that exist on both).",
       "editor": "stringList",
       "sectionCaption": "Details mode"
     }

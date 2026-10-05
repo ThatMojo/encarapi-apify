@@ -49,12 +49,12 @@ available through the API and SDKs.
 
 | Field | Description |
 |---|---|
-| EnCarAPI key | Required, secret |
+| EnCarAPI or ChinaCarAPI key | Required, secret |
 | Market | South Korea or China |
-| Mode | Search listings, or full details for vehicle ids |
+| Mode | Search listings, or full details for vehicle ids (Korean or Chinese ids) |
 | Max results | Stop after this many items |
 | Korea filters | Marketplace (Encar / KB Chachacha / K Car / all), brand, model, free-text model search, year, max price, max mileage, accident-free chassis |
-| China filters | Brand, model, max price (CNY), export-ready only |
+| China filters | Marketplace (Dongchedi / Che168 / both), brand, model, year, max price (CNY), max mileage, city, fuel, inspection report only, export-ready only |
 
 KB Chachacha, K Car and the combined view depend on your plan, see
 [encarapi.com/#pricing](https://encarapi.com/#pricing).

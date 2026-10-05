@@ -12,14 +12,20 @@ const { apiKey, market = "korea", mode = "search", maxItems = 100 } = input;
 // explaining how to get a key instead of failing. Keeps Apify's daily default-input
 // test green (it runs without secrets) and shows new users what to do next.
 if (!apiKey) {
+  const china = market === "china";
+  const site = china ? "https://chinacarapi.com" : "https://encarapi.com";
   await Actor.pushData({
     demo: true,
-    message: "No API key provided. This Actor returns live Korean (Encar, KB Chachacha, K Car) and Chinese (Dongchedi, Che168) used car listings once you add your EnCarAPI key in the input.",
-    getKey: market === "china" ? "https://chinacarapi.com" : "https://encarapi.com",
-    documentation: "https://encarapi.com/documentation",
-    exampleInput: { apiKey: "YOUR_KEY", market: "korea", manufacturer: "Hyundai", maxItems: 100 },
+    message: china
+      ? "No API key provided. This Actor returns live Chinese used car listings (Dongchedi, Che168) in English once you add your ChinaCarAPI key (chinacarapi.com) in the input. EnCarAPI keys with the China add-on work too."
+      : "No API key provided. This Actor returns live Korean (Encar, KB Chachacha, K Car) and Chinese (Dongchedi, Che168) used car listings once you add your EnCarAPI key in the input.",
+    getKey: site,
+    documentation: `${site}/documentation`,
+    exampleInput: china
+      ? { apiKey: "YOUR_KEY", market: "china", chinaMake: "BYD", maxItems: 100 }
+      : { apiKey: "YOUR_KEY", market: "korea", manufacturer: "Hyundai", maxItems: 100 },
   });
-  log.warning("Demo mode: no API key in the input. Get one at https://encarapi.com");
+  log.warning(`Demo mode: no API key in the input. Get one at ${site}`);
   await Actor.exit();
 }
 
@@ -65,16 +71,25 @@ try {
     }
   } else {
     const china = new ChinaClient(apiKey);
+    // "all" = both marketplaces: no source param (the API then removes cross-listed duplicates).
+    const source = input.chinaSource && input.chinaSource !== "all" ? input.chinaSource : undefined;
     if (mode === "details") {
       for (const id of input.vehicleIds || []) {
         if (pushed >= maxItems) break;
-        await push([await china.vehicle(id)]);
+        await push([await china.vehicle(id, { source })]);
       }
     } else {
       const params = {
+        source,
         make: input.chinaMake,
         model: input.chinaModel,
+        year_min: input.chinaMinYear,
+        year_max: input.chinaMaxYear,
         price_max: input.chinaPriceMaxCny,
+        mileage_max: input.chinaMaxMileage,
+        city: input.chinaCity,
+        fuel: input.chinaFuel,
+        has_report: input.chinaHasReport || undefined,
         export_ready: input.exportReady || undefined,
         sort: "newest",
       };
@@ -83,6 +98,11 @@ try {
         if (page === 1) log.info(`China: ${res.total ?? "?"} matching listings`);
         const items = res.results || [];
         if (!(await push(items)) || items.length < PAGE) break;
+        // The China API serves at most 10,000 results per query.
+        if ((page + 1) * PAGE > 10000) {
+          log.warning("Reached the 10,000-result limit per search. Narrow the filters for more.");
+          break;
+        }
       }
     }
   }
