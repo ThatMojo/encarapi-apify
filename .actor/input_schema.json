@@ -6,7 +6,7 @@
     "apiKey": {
       "title": "EnCarAPI or ChinaCarAPI key",
       "type": "string",
-      "description": "Your API key from https://encarapi.com (Korea) or https://chinacarapi.com (China). EnCarAPI keys with the China add-on work for both markets. Without a key the Actor only returns a demo item explaining how to get one.",
+      "description": "Your API key from https://encarapi.com/?utm_source=apify&utm_medium=encarapi-apify&utm_content=input#pricing (Korea) or https://chinacarapi.com/?utm_source=apify&utm_medium=encarapi-apify&utm_content=input#pricing (China). EnCarAPI keys with the China add-on work for both markets. Without a key the Actor only returns a demo item explaining how to get one.",
       "editor": "textfield",
       "isSecret": true
     },

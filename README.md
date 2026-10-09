@@ -1,7 +1,7 @@
 # Korean & Chinese Used Cars API (Encar, KB Chachacha, K Car, Dongchedi, Che168)
 
 Export live **used car listings from South Korea and China** into an Apify dataset (JSON,
-CSV, Excel) using the official [EnCarAPI](https://encarapi.com). No scraping, no proxies,
+CSV, Excel) using the official [EnCarAPI](https://encarapi.com/?utm_source=apify&utm_medium=encarapi-apify). No scraping, no proxies,
 no captchas: the Actor calls a production API that already mirrors the marketplaces.
 
 - **South Korea:** Encar (Korea's largest used car marketplace), KB Chachacha and K Car,
@@ -15,8 +15,8 @@ inventory.
 ## You need an API key
 
 This Actor is a client for the paid EnCarAPI service. Get a key (5-day trial) at
-**[encarapi.com](https://encarapi.com)**. Chinese data works with a
-[ChinaCarAPI](https://chinacarapi.com) key or an EnCarAPI key with the China add-on. The key
+**[encarapi.com](https://encarapi.com/?utm_source=apify&utm_medium=encarapi-apify)**. Chinese data works with a
+[ChinaCarAPI](https://chinacarapi.com/?utm_source=apify&utm_medium=encarapi-apify) key or an EnCarAPI key with the China add-on. The key
 is stored as an encrypted secret input.
 
 ## What you get
@@ -57,7 +57,7 @@ available through the API and SDKs.
 | China filters | Marketplace (Dongchedi / Che168 / both), brand, model, year, max price (CNY), max mileage, city, fuel, inspection report only, export-ready only |
 
 KB Chachacha, K Car and the combined view depend on your plan, see
-[encarapi.com/#pricing](https://encarapi.com/#pricing).
+[encarapi.com/#pricing](https://encarapi.com/?utm_source=apify&utm_medium=encarapi-apify#pricing).
 
 ## Prefer code?
 

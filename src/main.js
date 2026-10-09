@@ -19,7 +19,7 @@ if (!apiKey) {
     message: china
       ? "No API key provided. This Actor returns live Chinese used car listings (Dongchedi, Che168) in English once you add your ChinaCarAPI key (chinacarapi.com) in the input. EnCarAPI keys with the China add-on work too."
       : "No API key provided. This Actor returns live Korean (Encar, KB Chachacha, K Car) and Chinese (Dongchedi, Che168) used car listings once you add your EnCarAPI key in the input.",
-    getKey: site,
+    getKey: `${site}/?utm_source=apify&utm_medium=encarapi-apify&utm_content=run#pricing`,
     documentation: `${site}/documentation`,
     exampleInput: china
       ? { apiKey: "YOUR_KEY", market: "china", chinaMake: "BYD", maxItems: 100 }
