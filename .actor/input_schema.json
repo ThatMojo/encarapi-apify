@@ -170,6 +170,18 @@
       "description": "Maximum mileage in km.",
       "editor": "number"
     },
+    "chinaMinPowerHp": {
+      "title": "Min power (China, hp)",
+      "type": "integer",
+      "description": "Minimum power in hp. Cars without a known power figure are left out.",
+      "editor": "number"
+    },
+    "chinaMaxPowerHp": {
+      "title": "Max power (China, hp)",
+      "type": "integer",
+      "description": "Maximum power in hp.",
+      "editor": "number"
+    },
     "chinaCity": {
       "title": "City (China)",
       "type": "string",

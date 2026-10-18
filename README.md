@@ -54,7 +54,7 @@ available through the API and SDKs.
 | Mode | Search listings, or full details for vehicle ids (Korean or Chinese ids) |
 | Max results | Stop after this many items |
 | Korea filters | Marketplace (Encar / KB Chachacha / K Car / all), brand, model, free-text model search, year, max price, max mileage, accident-free chassis |
-| China filters | Marketplace (Dongchedi / Che168 / both), brand, model, year, max price (CNY), max mileage, city, fuel, inspection report only, export-ready only |
+| China filters | Marketplace (Dongchedi / Che168 / both), brand, model, year, max price (CNY), max mileage, min/max power (hp), city, fuel, inspection report only, export-ready only |
 
 KB Chachacha, K Car and the combined view depend on your plan, see
 [encarapi.com/#pricing](https://encarapi.com/?utm_source=apify&utm_medium=encarapi-apify#pricing).

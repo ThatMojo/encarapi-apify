@@ -87,6 +87,8 @@ try {
         year_max: input.chinaMaxYear,
         price_max: input.chinaPriceMaxCny,
         mileage_max: input.chinaMaxMileage,
+        power_min: input.chinaMinPowerHp,
+        power_max: input.chinaMaxPowerHp,
         city: input.chinaCity,
         fuel: input.chinaFuel,
         has_report: input.chinaHasReport || undefined,
