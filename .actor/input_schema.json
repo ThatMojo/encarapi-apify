@@ -119,7 +119,7 @@
     "chinaSource": {
       "title": "Chinese marketplace",
       "type": "string",
-      "description": "Dongchedi, Che168 or both (duplicates across the two are removed). The free Dev plan covers Dongchedi only. In details mode this picks the marketplace for ids that exist on both.",
+      "description": "Dongchedi, Che168 or both (duplicates across the two are removed). In details mode this picks the marketplace for ids that exist on both.",
       "editor": "select",
       "enum": [
         "all",
