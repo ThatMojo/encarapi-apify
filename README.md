@@ -5,7 +5,8 @@ CSV, Excel) using the official [EnCarAPI](https://encarapi.com/?utm_source=apify
 no captchas: the Actor calls a production API that already mirrors the marketplaces.
 
 - **South Korea:** Encar (Korea's largest used car marketplace), KB Chachacha and K Car,
-  deduplicated across platforms. English values for brands, models, fuel and transmission.
+  deduplicated across platforms. English values for brands, models, fuel and transmission,
+  optionally Russian or German.
 - **China:** Dongchedi and Che168 in English, prices in CNY with USD and EUR conversions,
   export-ready filter.
 
@@ -53,7 +54,7 @@ available through the API and SDKs.
 | Market | South Korea or China |
 | Mode | Search listings, or full details for vehicle ids (Korean or Chinese ids) |
 | Max results | Stop after this many items |
-| Korea filters | Marketplace (Encar / KB Chachacha / K Car / all), brand, model, free-text model search, year, max price, max mileage, accident-free chassis |
+| Korea filters | Marketplace (Encar / KB Chachacha / K Car / all), brand, model, free-text model search, year, max price, max mileage, accident-free chassis, language of the values (English, Russian, German) |
 | China filters | Marketplace (Dongchedi / Che168 / both), brand, model, year, max price (CNY), max mileage, min/max power (hp), city, fuel, inspection report only, export-ready only |
 
 KB Chachacha, K Car and the combined view depend on your plan, see

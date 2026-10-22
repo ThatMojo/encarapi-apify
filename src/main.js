@@ -7,6 +7,8 @@ await Actor.init();
 
 const input = (await Actor.getInput()) || {};
 const { apiKey, market = "korea", mode = "search", maxItems = 100 } = input;
+// Korean value language: en (default), ru or de.
+const koreaLang = ["en", "ru", "de"].includes(input.koreaLanguage) ? input.koreaLanguage : "en";
 
 // Without a key the Actor runs in demo mode: it saves one clearly labelled item
 // explaining how to get a key instead of failing. Keeps Apify's daily default-input
@@ -46,7 +48,7 @@ try {
     if (mode === "details") {
       for (const id of input.vehicleIds || []) {
         if (pushed >= maxItems) break;
-        await push([{ id, ...(await korea.vehicle(id, { lang: "en" })) }]);
+        await push([{ id, ...(await korea.vehicle(id, { lang: koreaLang })) }]);
       }
     } else {
       const params = {
@@ -59,7 +61,7 @@ try {
         max_price: input.maxPriceManwon,
         max_mileage: input.maxMileage,
         frame_clean: input.frameClean || undefined,
-        lang: "en",
+        lang: koreaLang,
         sort: "newest",
       };
       for (let page = 1; ; page++) {

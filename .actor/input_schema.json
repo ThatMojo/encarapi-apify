@@ -116,6 +116,23 @@
       "description": "Only cars with a clean chassis frame.",
       "default": false
     },
+    "koreaLanguage": {
+      "title": "Language of the values",
+      "type": "string",
+      "description": "Language of the display values in the Korean results (fuel, transmission, colors, regions, options; German also translates model and trim names). Ids, codes and numbers stay the same.",
+      "editor": "select",
+      "enum": [
+        "en",
+        "ru",
+        "de"
+      ],
+      "enumTitles": [
+        "English",
+        "Russian",
+        "German"
+      ],
+      "default": "en"
+    },
     "chinaSource": {
       "title": "Chinese marketplace",
       "type": "string",
